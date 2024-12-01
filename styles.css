@@ -1,0 +1,111 @@
+img {
+    width: 100%;
+    height: auto;
+    padding: 1px;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 50%;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-w {
+    flex-wrap: wrap;
+}
+
+.f-d-r {
+    flex-direction: row;
+}
+
+.f-d-c {
+    flex-direction: column;
+}
+
+body {
+    background: #fdf8f2;
+}
+
+.logo {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    font-size: 30px; 
+    height: 8vh; 
+    font-style: italic;
+    top: 0;
+    opacity: 1;
+    background: #ffffff1c;
+}
+
+.a1 {
+    transition: all 0.8s;
+}
+
+.p-r {
+    position: relative;
+}
+
+.p-a {
+    position: absolute;
+}
+
+.a1.hide {
+    top: -100px; /* Di chuyển phần tử vào vị trí ban đầu */
+    opacity: 0.3;
+}
+
+.date {
+    border: 5px;
+    background: black;
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    padding: 5px 8px;
+    border-radius: 8px;
+}
+
+.date-desc {
+    margin-top: 7px;
+}
+
+.f0 {
+    font-family: "Quicksand", sans-serif;
+    font-family: "Sofia", sans-serif;
+}
+
+.f1 {
+    font-family: "Quicksand", sans-serif;
+}
+
+.f2 {
+    font-family: "Imperial Script", sans-serif;
+}
+
+.f3 {
+    font-family: "Bungee Shade", sans-serif;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.fs-50 {
+    font-size: 50px;
+}
