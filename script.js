@@ -40,29 +40,41 @@ function submitForm() {
     send({
         ten: formData.get("ten"),
         sdt: formData.get("sdt"),
-        thamGia: formData.get("thamGia")
+        thamGia: formData.get("thamGia"),
+        loichuc: formData.get("loichuc")
     })
 }
 
-function send(data) {
+const images = document.querySelectorAll('img');
+
+// Tạo một Intersection Observer để theo dõi các ảnh
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Thêm lớp zoom-in khi ảnh xuất hiện
+      entry.target.classList.add('zoom-in');
+     
+    } else {
+        entry.target.classList.remove('zoom-in');
+    }
+  });
+}, { threshold: 0.5 }); // Kích hoạt khi 50% ảnh xuất hiện trong viewport
+
+// Bắt đầu quan sát từng ảnh
+images.forEach(image => {
+  observer.observe(image);
+});
+
+async function send(data) {
     var loading = document.getElementById("loading");
     loading.classList.add("show");
-    fetch('https://formspree.io/f/mdkovojj', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'  // Chỉ định kiểu dữ liệu gửi đi là JSON
-        },
-        body: JSON.stringify(data)  // Chuyển đổi dữ liệu thành chuỗi JSON
-      })
-        .then(response => response.json())  // Nhận phản hồi và chuyển đổi nó thành JSON
-        .then(data => {
-            loading.classList.remove("show");
-            showToast()
-        })
-        .catch(error => {
-            loading.classList.remove("show");
-            console.error('Có lỗi xảy ra:', error);  // Xử lý lỗi
-        });
+    try {
+        await window.addDoc(window.collection(window.db, "khaosat"), data);
+        loading.classList.remove("show");
+        showToast()
+    } catch (e) {
+        loading.classList.remove("show")
+    }
 }
 
 function showToast() {
