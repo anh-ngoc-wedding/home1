@@ -38,7 +38,7 @@ function submitForm() {
     }
     window.isSubmit = true
     send({
-        type: 0,
+        type: 1,
         ten: formData.get("ten"),
         sdt: formData.get("sdt"),
         thamGia: formData.get("thamGia"),
