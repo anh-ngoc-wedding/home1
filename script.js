@@ -24,7 +24,7 @@ setInterval(() => {
 function submitForm() {
     if(window.isSubmit) {
         showToastErr("Bạn đã phản hồi trước đó. Xin cảm ơn!")
-        remove
+        return
     }
     var form = document.getElementById('weddingForm');
     var formData = new FormData(form);
